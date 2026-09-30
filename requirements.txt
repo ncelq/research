@@ -1,0 +1,4 @@
+typesafe-sdk>=0.6.0
+yfinance>=0.2.0
+pandas>=2.0
+numpy>=1.24
