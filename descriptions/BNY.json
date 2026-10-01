@@ -1,0 +1,9 @@
+{
+  "symbol": "BNY",
+  "description": "The Bank of New York Mellon Corporation, a Delaware corporation headquartered in New York, is a global financial services platforms company whose subsidiaries have been in business since 1784, with $59.3 trillion in assets under custody and/or administration and $2.2 trillion in assets under management as of December 31, 2025. It divides its businesses into three principal business segments: Securities Services, Market and Wealth Services, and Investment and Wealth Management, plus an Other segment that includes corporate treasury activities such as its securities portfolio, tax credit investments and other corporate investments, corporate and bank-owned life insurance, derivatives and other trading activity, and certain business exits.",
+  "company_name": "The Bank of New York Mellon Corporation",
+  "form": "10-K",
+  "filing_url": "https://www.sec.gov/Archives/edgar/data/1390777/000139077726000033/bk-20251231.htm",
+  "source": "SEC EDGAR",
+  "source_section": "Item 1. Business"
+}

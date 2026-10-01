@@ -1,0 +1,9 @@
+{
+  "symbol": "NVDA",
+  "description": "NVIDIA pioneered accelerated computing to help solve the most challenging computational problems and is now a data center scale AI infrastructure company reshaping all industries. Its technology stack includes the foundational NVIDIA CUDA development platform that runs on all NVIDIA GPUs, as well as hundreds of domain-specific software libraries, frameworks, algorithms, software development kits and application programming interfaces, and this deep and broad software stack accelerates the performance and facilitates the deployment of NVIDIA accelerated computing for computationally intensive workloads such as artificial intelligence, model training and inference, data analytics, scientific computing, robotics and 3D graphics, with vertical-specific optimizations to address industries ranging from healthcare and telecom to automotive and manufacturing. Introduced with the Blackwell architecture, its data-center-scale offerings feature extreme co-design where the infrastructure's chips, networking, systems, software and algorithms are optimized together, and its Data Center infrastructure systems include supercomputing platforms and servers bringing together higher-performance, energy-efficient GPUs, CPUs and interconnects with fully optimized AI and HPC software stacks, while its networking offerings include NVLink interconnects and switches and end-to-end InfiniBand and Ethernet platforms.",
+  "company_name": "NVIDIA Corporation",
+  "form": "10-K",
+  "filing_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+  "source": "SEC EDGAR",
+  "source_section": "Item 1. Business"
+}

@@ -1,0 +1,9 @@
+{
+  "symbol": "AMD",
+  "description": "Advanced Micro Devices, Inc. drives innovation in high performance and AI computing, with its technology powering billions of experiences across cloud and AI infrastructure, embedded systems, AI PCs and gaming. Its broad portfolio of AI-optimized CPUs, GPUs, networking and software delivers full-stack solutions, including semi-custom system-on-chips, adaptive SoCs and accelerated processing units for clients, and for data centers AI accelerators, microprocessors, GPUs, data processing units, AI network interface cards, field programmable gate arrays, ultra-low latency networking and rack-scale data center platform designs for AI supercomputers and machine learning workloads. It was the first company to integrate a dedicated neural processing unit on the same SoC as an x86 CPU for AI PCs.",
+  "company_name": "Advanced Micro Devices, Inc.",
+  "form": "10-K",
+  "filing_url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm",
+  "source": "SEC EDGAR",
+  "source_section": "Item 1. Business"
+}

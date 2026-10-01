@@ -1,0 +1,9 @@
+{
+  "symbol": "COIN",
+  "description": "Coinbase Global, Inc., which was initially incorporated in May 2012 as Coinbase, Inc. and converted to a Texas corporation in December 2025, is the parent company of Coinbase, Inc. and a number of other operating subsidiaries, and describes itself as a remote-first company whose majority of employees work remotely and which therefore does not maintain a headquarters. It offers products primarily to three customer groups: Consumers, which are retail customers seeking to hold, invest or trade crypto assets as well as a growing set of trading offerings such as equities, prediction markets and derivatives; Institutions, including market makers, asset managers, hedge funds, banks, wealth platforms, registered investment advisors, payment platforms and corporations, which use its products to custody and trade crypto or crypto derivatives; and Developers, including technology companies, financial institutions and payment firms that leverage the Base Chain and Coinbase Developer Platform. Its platform serves as a secure and compliant on-ramp to the onchain economy, and its business consists of products monetized through transaction fees as well as subscription products such as its stablecoin products.",
+  "company_name": "Coinbase Global, Inc.",
+  "form": "10-K",
+  "filing_url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978826000015/coin-20251231.htm",
+  "source": "SEC EDGAR",
+  "source_section": "Item 1. Business"
+}

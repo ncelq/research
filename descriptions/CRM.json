@@ -1,0 +1,9 @@
+{
+  "symbol": "CRM",
+  "description": "Salesforce, Inc. is a global leader in customer relationship management technology, helping organizations of any size become agentic enterprises, and founded in 1999 it brings humans, agents, applications and data together on a trusted, unified platform to unlock growth and innovation. Its artificial intelligence powered Agentforce 360 Platform unites its offerings spanning sales, service, marketing, commerce, collaboration, data management, integration, analytics, IT service and industry verticals on a single, intelligent platform for trusted enterprise execution, unifying and harmonizing across systems, applications and devices to create a complete view of customers, and with Agentforce, the agentic layer of the platform, customers can build, deploy and manage enterprise-grade, autonomous AI agents at scale, enabling humans and agents to work together, with agents able to access live business data through Data 360, follow company policies defined in Salesforce metadata, and take action through Salesforce applications and MuleSoft APIs.",
+  "company_name": "Salesforce, Inc.",
+  "form": "10-K",
+  "filing_url": "https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm",
+  "source": "SEC EDGAR",
+  "source_section": "Item 1. Business"
+}

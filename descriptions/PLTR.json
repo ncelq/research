@@ -1,0 +1,9 @@
+{
+  "symbol": "PLTR",
+  "description": "Palantir Technologies Inc. builds software that empowers organizations to effectively integrate their data, decisions and operations at scale, and it was founded in 2003 and started building software for the intelligence community in the United States to assist in counterterrorism investigations and operations, later working with commercial enterprises that often faced fundamentally similar challenges in working with data. It has built four principal software platforms, Palantir Gotham, Palantir Foundry, Palantir Apollo and its Artificial Intelligence Platform, with Foundry its foundational data operations platform providing core capabilities for data management, logic authoring, systemic mapping development through the Palantir Ontology, analytics and workflow development, and AIP its generative artificial intelligence platform providing secure connectivity to third-party-provided large language models, a development toolchain for building AI-powered agents and automations, and an array of AI-enabled end user applications.",
+  "company_name": "Palantir Technologies Inc.",
+  "form": "10-K",
+  "filing_url": "https://www.sec.gov/Archives/edgar/data/1321655/000132165526000011/pltr-20251231.htm",
+  "source": "SEC EDGAR",
+  "source_section": "Item 1. Business"
+}

@@ -1,0 +1,9 @@
+{
+  "symbol": "DDOG",
+  "description": "Datadog, Inc. is the AI-powered observability and security platform for cloud applications. Its SaaS platform integrates and automates infrastructure monitoring, application performance monitoring, log management, user experience monitoring, cloud security, service management and many other capabilities to provide unified, real-time observability and security for its customers' entire technology stack. Datadog is used by organizations of all sizes and across a wide range of industries to enable digital transformation and cloud migration, drive collaboration among development, operations, security and business teams, accelerate time to market, reduce time to problem resolution, secure applications and infrastructure, understand user behavior and track key business metrics, and it has over 1,000 out-of-the-box integrations maintained by Datadog.",
+  "company_name": "Datadog, Inc.",
+  "form": "10-K",
+  "filing_url": "https://www.sec.gov/Archives/edgar/data/1561550/000162828026008819/ddog-20251231.htm",
+  "source": "SEC EDGAR",
+  "source_section": "Item 1. Business"
+}
