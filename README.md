@@ -1,63 +1,62 @@
-# QQQ timepoint-21 direction predictor (anonymized, TypeSafe SDK)
+# research
+
+LLM market-prediction experiments plus a library of SEC-sourced company profiles.
+
+## Contents
+
+| Path | What it is |
+| --- | --- |
+| `backtest_simple.ipynb` | QQQ direction backtest (N=50, sequential, in-memory) |
+| `sp500.csv` | S&P 500 constituents: ticker, name, GICS sector/sub-industry, HQ, date added, CIK, founded |
+| `descriptions/` | 502 `descriptions/<SYMBOL>.json` company profiles extracted from Form 10-K Item 1 |
+| `.pi/skills/extracting-company-profiles/` | Skill for producing those profiles |
 
 ## Install
 
 ```sh
-pip install -r requirements.txt   # real SDK is `typesafe-sdk`
-                                  # (see https://docs.typesafe.ai/sdk/python#pip)
-export TYPESAFE_API_KEY="..."
+pip install -r requirements.txt   # typesafe-sdk, yfinance, pandas, numpy
+export TYPESAFE_API_KEY="..."     # needed for the backtest and for profile validation
 ```
 
-## Run
+## QQQ direction backtest
 
-```sh
-python predict_qqq_direction.py --print-prompt                # live: fetch QQQ (N=20), predict UP/DOWN
-python predict_qqq_direction.py --timepoints 50 --print-prompt # live: 50 observations, predict key 51
-python predict_qqq_direction.py --no-live --print-prompt       # offline: show anonymized prompt only
-python test_predict_qqq_direction.py                          # offline unit tests (no key/network)
-```
+`backtest_simple.ipynb` is self-contained — no threads, no cache files, no CLI.
+Everything stays in memory. Run it top-to-bottom: `Kernel → Restart & Run All`.
 
-`--timepoints N` sets the observation-window size (default 20, allowed
-20–200). The state always holds N observed `change%` values plus a `null`
-placeholder at key N+1, which is the to-predict target.
+It downloads QQQ daily closes with `yfinance` starting `2025-10-01` as a warmup
+buffer, then loops every trading day from `2026-01-02` to `2026-08-30`. For each
+target day it takes the previous 50 trading days (current day excluded), computes
+50 simple percent changes, and asks the model for the direction of the next day.
 
-## Prediction log (`predictions.jsonl`)
+The state sent to the model is an anonymized object map
+`{"1": v1, ..., "50": v50, "51": null}` — keys `"1"`–`"50"` hold the observed
+change values, key `"51"` is `null` and is the target. No ticker, asset class,
+price, date, or calendar tokens are included (`assert_anonymized` enforces this).
+The question is a binary `Choice(up/down)`; the model returns `UP` or `DOWN` with
+a confidence. Days where the API call fails are printed and skipped.
 
-Every successful live run appends one JSON object per line:
+The final cell reports accuracy, a confusion matrix (UP/UP, UP/DOWN, DOWN/UP,
+DOWN/DOWN), and a chart of predicted-direction runs over time.
+
+## Company profiles
+
+Each file in `descriptions/` holds one profile drafted from Item 1 (Business) of a
+company's latest Form 10-K on SEC EDGAR, then gated by a TypeSafe `noul` check
+(`answers.check_profile.noul >= 0.5`) before being written:
 
 ```json
-{"prediction_date": "2026-09-30", "direction": "UP", "confidence": 0.82, "actual_change_pct": null, "timepoints": 20, "model": "system-one-x", "run_at": "2026-09-29T09:30:00Z"}
+{
+  "symbol": "AAPL",
+  "description": "Apple Inc. designs, manufactures and markets ...",
+  "company_name": "Apple Inc.",
+  "form": "10-K",
+  "filing_url": "https://www.sec.gov/Archives/edgar/data/320193/...",
+  "source": "SEC EDGAR",
+  "source_section": "Item 1. Business"
+}
 ```
 
-- `prediction_date`: next weekday after the last observed trading date
-  (exchange holidays not calendar-checked).
-- `actual_change_pct`: always `null` (write-once log; realized move is
-  unknowable on prediction day and is never backfilled).
-- `--output PATH` overrides the log path; `--no-write` suppresses writing;
-  `--no-live` never writes.
-
-## Backtest (`backtest_qqq_direction.py`)
-
-Walks every trading day in `--start..--end` (default 2020-01-01..2026-08-30),
-predicts each day from the N prior log changes (excluding the target day) via
-the client-default model — 20 predictions in parallel (`--workers`, default
-20) — and writes a Markdown-only accuracy report (overall accuracy,
-confusion matrix, yearly + confidence splits) to `backtest_report.md`.
-Predictions cache in `backtest_predictions.jsonl` for skip-and-resume;
-API errors are recorded per day and skipped. `--limit K` caps a run for
-smoke tests.
-
-## What it does
-
-1. Fetches latest 21 daily QQQ closes via `yfinance` (last N trading rows, so
-   weekends/holidays are skipped) and computes 20 logged percentage changes
-   `ln(p_t / p_{t-1}) * 100`.
-2. Builds an anonymized TypeSafe `state` as one compact JSON **object map**
-   `{"1": v1, ..., "20": v20, "21": null}` — string keys `"1"`–`"20"`
-   hold the observed change% values, key `"21"` is `null` (to predict).
-   Shape is narrated by `STATE_DESCRIPTION` (sent inside the question
-   instructions). No ticker, asset class,
-   price, date, or calendar tokens (enforced by `assert_anonymized`).
-3. Calls `TypeSafeClient.system_one` with a binary `Choice(up/down)` question
-   asking for the direction of `timepoint 21`, and prints `UP` or `DOWN` with
-   confidence/probabilities.
+To add or refresh a profile, follow the skill in
+`.pi/skills/extracting-company-profiles/SKILL.md` — read the filing directly (no
+scraper script), validate with the `check_profile` question, then write
+`descriptions/<SYMBOL>.json`.
